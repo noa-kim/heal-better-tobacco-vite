@@ -11,7 +11,7 @@ export const methods = [
     access: "Ask your primary care provider for a prescription. Covered by most Medicaid and commercial plans in Michigan.",
     sample: "No",
     goodrx: "https://www.goodrx.com/chantix",
-    image: "https://source.unsplash.com/featured/?pill"
+    image: "/public/images/varenicline.jpg"
   },
   {
     name: "Bupropion (Zyban)",
@@ -24,7 +24,7 @@ export const methods = [
     access: "Talk to your doctor. Often covered under Michigan Medicaid and most commercial plans.",
     sample: "No",
     goodrx: "https://www.goodrx.com/zyban",
-    image: "https://source.unsplash.com/featured/?medication"
+    image: "/public/images/buproprion-with-drop=shaddow.png"
   },
   {
     name: "Nicotine Patch",
@@ -37,7 +37,7 @@ export const methods = [
     access: "Available at Michigan pharmacies. Medicaid and most plans cover with counseling. Free samples may be available through MDHHS.",
     sample: "Yes",
     goodrx: "https://www.goodrx.com/nicotine-patch",
-    image: "https://source.unsplash.com/featured/?nicotine-patch"
+    image: "/public/images/nicotine-patch.png"
   },
   {
     name: "Nicotine Gum",
@@ -50,7 +50,7 @@ export const methods = [
     access: "Sold OTC in Michigan stores. Medicaid often covers if paired with counseling.",
     sample: "Yes",
     goodrx: "https://www.goodrx.com/nicotine-gum",
-    image: "https://source.unsplash.com/featured/?gum"
+    image: "/public/images/gum.png"
   },
   {
     name: "Nicotine Lozenge",
@@ -63,7 +63,7 @@ export const methods = [
     access: "Available OTC. Medicaid covers with counseling in Michigan.",
     sample: "Yes",
     goodrx: "https://www.goodrx.com/nicotine-lozenge",
-    image: "https://source.unsplash.com/featured/?lozenge"
+    image: "/public/images/lozenge.png"
   },
   {
     name: "Nicotine Nasal Spray",
@@ -76,7 +76,7 @@ export const methods = [
     access: "Prescription required. May be covered by Medicaid or commercial insurance in Michigan.",
     sample: "No",
     goodrx: "https://www.goodrx.com/nicotine-nasal-spray",
-    image: "https://source.unsplash.com/featured/?nasal-spray"
+    image: "/public/images/spray.png"
   },
   {
     name: "Exercise",
@@ -89,7 +89,7 @@ export const methods = [
     access: "No prescription needed. Use local Michigan trails or parks.",
     sample: "N/A",
     goodrx: "",
-    image: "https://source.unsplash.com/featured/?exercise"
+    image: "/public/images/walking.jpg"
   },
   {
     name: "Deep Breathing",
@@ -102,7 +102,7 @@ export const methods = [
     access: "Practice anywhere. Helpful for Michigan winters when indoor relaxation is needed.",
     sample: "N/A",
     goodrx: "",
-    image: "https://source.unsplash.com/featured/?breathing"
+    image: "/public/images/nature.jpg"
   },
   {
     name: "Listening to Music",
@@ -115,7 +115,7 @@ export const methods = [
     access: "Use streaming apps or Michigan libraries offering free music downloads.",
     sample: "N/A",
     goodrx: "",
-    image: "https://source.unsplash.com/featured/?music"
+    image: "/public/images/music.jpg"
   },
   {
     name: "Chewing Raw Carrots or Sunflower Seeds",
@@ -128,7 +128,7 @@ export const methods = [
     access: "Available at Michigan grocery stores and food pantries.",
     sample: "N/A",
     goodrx: "",
-    image: "https://source.unsplash.com/featured/?carrots"
+    image: "/public/images/carrots-and-sunflower-seeds.jpg"
   },
   {
     name: "Support Groups",
@@ -141,7 +141,7 @@ export const methods = [
     access: "Find local programs via Michigan Tobacco Quitline (1-800-QUIT-NOW) or MDHHS.",
     sample: "N/A",
     goodrx: "",
-    image: "https://source.unsplash.com/featured/?support-group"
+    image: "/public/images/support-group.jpg"
   }
 ];
 
