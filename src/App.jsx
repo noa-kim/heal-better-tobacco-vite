@@ -1,7 +1,7 @@
 import methods from "./methods"; //tobacco cessation methods are in methods.js
 import { useState } from 'react';
 // import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
