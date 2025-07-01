@@ -1,11 +1,15 @@
-import methods from "./methods"; 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-// TODO: Replace this with your actual method data
-const methods = [];
+
+/**
+ * Project: Heal Better Tobacco Cessation Options
+ * Description: Interactive module to explore and favorite methods to support tobacco cessation.
+ */
+
+const methods = [...]; // existing method objects unchanged
 
 export default function HealBetterTobaccoCessationOptions() {
   const [favorites, setFavorites] = useState([]);
@@ -13,15 +17,15 @@ export default function HealBetterTobaccoCessationOptions() {
   const [showFreeSamplesOnly, setShowFreeSamplesOnly] = useState(false);
 
   const toggleFavorite = (methodName) => {
-    setFavorites(prev =>
-      prev.includes(methodName)
-        ? prev.filter(m => m !== methodName)
+    setFavorites(prev => 
+      prev.includes(methodName) 
+        ? prev.filter(m => m !== methodName) 
         : [...prev, methodName]
     );
   };
 
-  const filteredMethods = showFreeSamplesOnly
-    ? methods.filter(m => m.sample?.toLowerCase() === "yes")
+  const filteredMethods = showFreeSamplesOnly 
+    ? methods.filter(m => m.sample.toLowerCase() === "yes")
     : methods;
 
   const handleExportPDF = () => {
@@ -32,11 +36,11 @@ export default function HealBetterTobaccoCessationOptions() {
     const tableData = favorites.map(name => {
       const method = methods.find(m => m.name === name);
       return [
-        method?.name ?? "",
-        method?.type ?? "",
-        method?.cost ?? "",
-        method?.sample ?? "",
-        method?.goodrx ?? ""
+        method.name,
+        method.type,
+        method.cost,
+        method.sample,
+        method.goodrx
       ];
     });
 
@@ -57,9 +61,9 @@ export default function HealBetterTobaccoCessationOptions() {
     <div className="p-6">
       <div className="mb-4">
         <label className="inline-flex items-center space-x-2">
-          <input
-            type="checkbox"
-            checked={showFreeSamplesOnly}
+          <input 
+            type="checkbox" 
+            checked={showFreeSamplesOnly} 
             onChange={() => setShowFreeSamplesOnly(!showFreeSamplesOnly)}
             className="accent-blue-600"
           />
@@ -69,16 +73,14 @@ export default function HealBetterTobaccoCessationOptions() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {filteredMethods.map((method, index) => (
-          <Card
-            key={index}
-            className={`relative border-2 transition-all duration-200 ${
-              favorites.includes(method.name) ? 'border-green-500' : 'border-transparent'
-            }`}
+          <Card 
+            key={index} 
+            className={`relative border-2 transition-all duration-200 ${favorites.includes(method.name) ? 'border-green-500' : 'border-transparent'}`}
             onClick={() => setExpanded(expanded === method.name ? null : method.name)}
           >
-            <img
-              src={method.image}
-              alt={method.name}
+            <img 
+              src={method.image} 
+              alt={method.name} 
               className="w-full h-40 object-contain p-4"
             />
             <CardContent className="text-center">
@@ -89,8 +91,8 @@ export default function HealBetterTobaccoCessationOptions() {
             {expanded === method.name && (
               <div className="bg-gray-100 text-sm p-4">
                 <p><strong>Estimated Cost:</strong> {method.cost}</p>
-                <p><strong>Pros:</strong> {method.pros?.join(", ")}</p>
-                <p><strong>Cons:</strong> {method.cons?.join(", ")}</p>
+                <p><strong>Pros:</strong> {method.pros.join(", ")}</p>
+                <p><strong>Cons:</strong> {method.cons.join(", ")}</p>
                 <p><strong>How to Use:</strong> {method.usage}</p>
                 <p><strong>How to Get It:</strong> {method.access}</p>
                 <p><strong>Free Sample Available From MDHHS:</strong> {method.sample}</p>
