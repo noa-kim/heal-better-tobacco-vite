@@ -1,11 +1,9 @@
-import methods from "./methods"; 
+import methods from "./methods"; //tobacco cessation methods are in methods.js
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-// TODO: Replace this with your actual method data
-const methods = [];
 
 export default function HealBetterTobaccoCessationOptions() {
   const [favorites, setFavorites] = useState([]);
