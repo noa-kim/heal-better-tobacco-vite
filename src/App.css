@@ -3,6 +3,11 @@
   font-family: sans-serif;
 }
 
+.body {
+  background: #d9eef3;
+  color: #222;
+}
+
 :root {
   --color-primary: #399396;
   --color-secondary: #F26B42;
@@ -17,9 +22,15 @@
   margin-bottom: 1rem;
   color: var(--color-secondary);
 }
+
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
 .grid {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
 }
 .card {
@@ -58,4 +69,11 @@
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
 }
