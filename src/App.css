@@ -2,6 +2,9 @@
   padding: 1rem;
   font-family: sans-serif;
 }
+.welcome {
+  margin-bottom: 1rem;
+}
 .controls {
   margin-bottom: 1rem;
 }
