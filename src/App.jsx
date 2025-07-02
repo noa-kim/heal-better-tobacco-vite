@@ -51,7 +51,9 @@ export default function HealBetterTobaccoCessationOptions() {
   };
 
   return (
+    <>
     <div className="container">
+      <h1 className="title">Tobacco Cessation Support Strategies</h1>
       <p className="welcome">
         Explore resources to help you quit! Click on any of the options to learn more about it. Save your favorites and print them as a reminder.
       </p>
@@ -116,5 +118,9 @@ export default function HealBetterTobaccoCessationOptions() {
         )}
       </div>
     </div>
+    <footer className="footer">
+      Made by <a href="https://www.hbomich.org/" target="_blank" rel="noopener noreferrer">HBOM</a>. Last updated 07/02/2025
+    </footer>
+    </>
   );
 }
