@@ -52,6 +52,9 @@ export default function HealBetterTobaccoCessationOptions() {
 
   return (
     <div className="container">
+      <p className="welcome">
+        Explore resources to help you quit! Click on any of the options to learn more about it. Save your favorites and print them as a reminder.
+      </p>
       <div className="controls">
         <label>
           <input
