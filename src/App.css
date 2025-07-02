@@ -3,7 +3,7 @@
   font-family: sans-serif;
 }
 
-body {
+.body {
   background: #d9eef3;
   color: #222;
 }
@@ -30,7 +30,7 @@ body {
 }
 .grid {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
 }
 .card {

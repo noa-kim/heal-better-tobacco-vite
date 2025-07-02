@@ -4,6 +4,15 @@ import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import "./App.css";
 
+const isValidUrl = (url) => {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 export default function HealBetterTobaccoCessationOptions() {
   const [favorites, setFavorites] = useState([]);
   const [expanded, setExpanded] = useState(null);
@@ -92,7 +101,22 @@ export default function HealBetterTobaccoCessationOptions() {
                 <p><strong>How to Use:</strong> {method.usage}</p>
                 <p><strong>How to Get It:</strong> {method.access}</p>
                 <p><strong>Free Sample Available From MDHHS:</strong> {method.sample}</p>
-                <p><strong>GoodRx Estimate:</strong> <a href={method.goodrx} className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">{method.cost} (View on GoodRx)</a></p>
+                {method.goodrx ? (
+                  isValidUrl(method.goodrx) ? (
+                    <p><strong>GoodRx Estimate:</strong>{" "}
+                      <a
+                        href={method.goodrx}
+                        className="text-blue-600 underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {method.cost} (View on GoodRx)
+                      </a>
+                    </p>
+                  ) : null
+                ) : (
+                  <p><strong>GoodRx Estimate:</strong> {method.cost}</p>
+                )}
                 <button className="btn" onClick={(e) => { e.stopPropagation(); toggleFavorite(method.name); }}>
                   {favorites.includes(method.name) ? 'Remove from Favorites' : 'Add to Favorites'}
                 </button>
