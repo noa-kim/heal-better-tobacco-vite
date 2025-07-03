@@ -1,2 +1,4 @@
 node_modules/
+
+# Ignore macOS Finder files
 .DS_Store
