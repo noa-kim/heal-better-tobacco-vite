@@ -100,7 +100,23 @@ export default function HealBetterTobaccoCessationOptions() {
                 <p><strong>Cons:</strong> {method.cons?.join(", ")}</p>
                 <p><strong>How to Use:</strong> {method.usage}</p>
                 <p><strong>How to Get It:</strong> {method.access}</p>
-                <p><strong>Free Sample Available From MDHHS:</strong> {method.sample}</p>
+                <p>
+                  <strong>Free Sample Available From MDHHS:</strong> {method.sample}
+                  {method.sample && method.sample.toLowerCase() === "yes" && (
+                    <>
+                      {' '}
+                      <a
+                        href="https://michigan.quitlogix.org/en-us/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-blue-600 underline"
+                      >
+                        Learn more
+                      </a>
+                    </>
+                  )}
+                </p>
                 {method.goodrx ? (
                   isValidUrl(method.goodrx) ? (
                     <p><strong>GoodRx Estimate:</strong>{" "}
