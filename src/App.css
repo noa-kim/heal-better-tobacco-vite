@@ -54,6 +54,7 @@ body {
   gap: 2.5rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
   justify-content: center;
+};
 .card {
   background: #fff;
   color: #000;
@@ -96,17 +97,6 @@ body {
   cursor: pointer;
 }
 
-.btn-quitlink {
-  background: #006c79;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.btn-quitlink img {
-  height: 1em;
-  width: auto;
-}
 
 .footer {
   margin-top: 2rem;
