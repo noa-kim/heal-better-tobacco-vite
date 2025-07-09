@@ -1,4 +1,6 @@
 node_modules/
+dist/
 
 # Ignore macOS Finder files
 .DS_Store
+dist/
