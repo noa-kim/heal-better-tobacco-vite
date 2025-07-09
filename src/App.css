@@ -83,17 +83,6 @@ body {
   cursor: pointer;
 }
 
-.btn-quitlink {
-  background: #006c79;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.btn-quitlink img {
-  height: 1em;
-  width: auto;
-}
 
 .footer {
   margin-top: 2rem;

@@ -100,7 +100,23 @@ export default function HealBetterTobaccoCessationOptions() {
                 <p><strong>Cons:</strong> {method.cons?.join(", ")}</p>
                 <p><strong>How to Use:</strong> {method.usage}</p>
                 <p><strong>How to Get It:</strong> {method.access}</p>
-                <p><strong>Free Sample Available From MDHHS:</strong> {method.sample}</p>
+                <p>
+                  <strong>Free Sample Available From MDHHS:</strong> {method.sample}
+                  {method.sample && method.sample.toLowerCase() === "yes" && (
+                    <>
+                      {' '}
+                      <a
+                        href="https://michigan.quitlogix.org/en-us/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-blue-600 underline"
+                      >
+                        Learn more
+                      </a>
+                    </>
+                  )}
+                </p>
                 {method.goodrx ? (
                   isValidUrl(method.goodrx) ? (
                     <p><strong>GoodRx Estimate:</strong>{" "}
@@ -116,21 +132,6 @@ export default function HealBetterTobaccoCessationOptions() {
                   ) : null
                 ) : (
                   <p><strong>GoodRx Estimate:</strong> {method.cost}</p>
-                )}
-                {method.sample && method.sample.toLowerCase() === "yes" && (
-                  <a
-                    className="btn btn-quitlink"
-                    href="https://michigan.quitlogix.org/en-us/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Get from
-                    <img
-                      src="https://michigan.quitlogix.org/Libraries/media/ClientLogo/TobaccoQuitLink_Logo-Reverse.png?ext=.png"
-                      alt="Michigan Tobacco Quitlink"
-                    />
-                  </a>
                 )}
                 <button className="btn" onClick={(e) => { e.stopPropagation(); toggleFavorite(method.name); }}>
                   {favorites.includes(method.name) ? 'Remove from Favorites' : 'Add to Favorites'}
