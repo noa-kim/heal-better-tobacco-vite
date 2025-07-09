@@ -117,6 +117,21 @@ export default function HealBetterTobaccoCessationOptions() {
                 ) : (
                   <p><strong>GoodRx Estimate:</strong> {method.cost}</p>
                 )}
+                {method.sample && method.sample.toLowerCase() === "yes" && (
+                  <a
+                    className="btn btn-quitlink"
+                    href="https://michigan.quitlogix.org/en-us/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <img
+                      src="https://michigan.quitlogix.org/Libraries/media/ClientLogo/TobaccoQuitLink_Logo-Reverse.png?ext=.png"
+                      alt="Tobacco Quitlink logo"
+                    />
+                    Get Free Sample From the Quitlink
+                  </a>
+                )}
                 <button className="btn" onClick={(e) => { e.stopPropagation(); toggleFavorite(method.name); }}>
                   {favorites.includes(method.name) ? 'Remove from Favorites' : 'Add to Favorites'}
                 </button>
