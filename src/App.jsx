@@ -125,11 +125,11 @@ export default function HealBetterTobaccoCessationOptions() {
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                   >
+                    Get from
                     <img
                       src="https://michigan.quitlogix.org/Libraries/media/ClientLogo/TobaccoQuitLink_Logo-Reverse.png?ext=.png"
-                      alt="Tobacco Quitlink logo"
+                      alt="Michigan Tobacco Quitlink"
                     />
-                    Get Free Sample From the Quitlink
                   </a>
                 )}
                 <button className="btn" onClick={(e) => { e.stopPropagation(); toggleFavorite(method.name); }}>
