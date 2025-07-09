@@ -91,7 +91,8 @@ body {
 }
 
 .btn-quitlink img {
-  height: 20px;
+  height: 1em;
+  width: auto;
 }
 
 .footer {
