@@ -17,6 +17,7 @@ export default function HealBetterTobaccoCessationOptions() {
   const [favorites, setFavorites] = useState([]);
   const [expanded, setExpanded] = useState(null);
   const [showFreeSamplesOnly, setShowFreeSamplesOnly] = useState(false);
+  const [filter, setFilter] = useState("All");
 
   const toggleFavorite = (methodName) => {
     setFavorites(prev =>
@@ -26,9 +27,13 @@ export default function HealBetterTobaccoCessationOptions() {
     );
   };
 
-  const filteredMethods = showFreeSamplesOnly
-    ? methods.filter(m => m.sample?.toLowerCase() === "yes")
-    : methods;
+  const filteredMethods = methods.filter(m => {
+    if (showFreeSamplesOnly && m.sample?.toLowerCase() !== "yes") {
+      return false;
+    }
+    if (filter === "All") return true;
+    return m.tags?.includes(filter);
+  });
 
   const handleExportPDF = () => {
     const doc = new jsPDF();
@@ -47,7 +52,7 @@ export default function HealBetterTobaccoCessationOptions() {
     });
 
     doc.autoTable({
-      head: [["Name", "Type", "Cost", "Free Sample (MDHHS)", "GoodRx URL"]],
+      head: [["Name", "Type", "Cost", "Free Sample (Quitlink)", "GoodRx URL"]],
       body: tableData,
       startY: 30,
       styles: { fontSize: 10, cellWidth: 'wrap' },
@@ -67,14 +72,23 @@ export default function HealBetterTobaccoCessationOptions() {
         Explore resources to help you quit! Click on any of the options to learn more about it. Save your favorites and print them as a reminder.
       </p>
       <div className="controls">
-        <label>
-          <input
-            type="checkbox"
-            checked={showFreeSamplesOnly}
-            onChange={() => setShowFreeSamplesOnly(!showFreeSamplesOnly)}
-          />
-          <span>Show only methods with free samples from MDHHS</span>
-        </label>
+        <button
+          className={`btn ${showFreeSamplesOnly ? 'active' : ''}`}
+          onClick={() => setShowFreeSamplesOnly(!showFreeSamplesOnly)}
+        >
+          Free Sample from the Quitlink
+        </button>
+        <div className="filter-group">
+          {['All', 'Nicotine Replacement', 'Prescription Medication', 'Other'].map(cat => (
+            <button
+              key={cat}
+              className={`btn ${filter === cat ? 'active' : ''}`}
+              onClick={() => setFilter(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid">
@@ -100,23 +114,23 @@ export default function HealBetterTobaccoCessationOptions() {
                 <p><strong>Cons:</strong> {method.cons?.join(", ")}</p>
                 <p><strong>How to Use:</strong> {method.usage}</p>
                 <p><strong>How to Get It:</strong> {method.access}</p>
-                <p>
-                  <strong>Free Sample Available From MDHHS:</strong> {method.sample}
-                  {method.sample && method.sample.toLowerCase() === "yes" && (
-                    <>
-                      {' '}
-                      <a
-                        href="https://michigan.quitlogix.org/en-us/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-blue-600 underline"
-                      >
-                        Learn more
-                      </a>
-                    </>
-                  )}
-                </p>
+               <p>
+  <strong>Free Sample Available From the Quitlink:</strong> {method.sample}
+  {method.sample && method.sample.toLowerCase() === "yes" && (
+    <>
+      {' '}
+      <a
+        href="https://michigan.quitlogix.org/en-us/"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        className="text-blue-600 underline"
+      >
+        Learn more
+      </a>
+    </>
+  )}
+</p>
                 {method.goodrx ? (
                   isValidUrl(method.goodrx) ? (
                     <p><strong>GoodRx Estimate:</strong>{" "}

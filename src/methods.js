@@ -3,6 +3,7 @@ export const methods = [
   {
     name: "Varenicline (Chantix)",
     type: "Prescription Medication",
+    tags: ["Prescription Medication"],
     description: "Non-nicotine pill that eases cravings and withdrawal symptoms.",
     cost: "$100–$500/month",
     pros: ["Reduces cravings and withdrawal", "Non-nicotine option"],
@@ -16,6 +17,7 @@ export const methods = [
   {
     name: "Bupropion (Zyban)",
     type: "Prescription Medication",
+    tags: ["Prescription Medication"],
     description: "Antidepressant that can also reduce tobacco cravings.",
     cost: "$50–$150/month",
     pros: ["Reduces cravings", "May also help with depression"],
@@ -29,6 +31,7 @@ export const methods = [
   {
     name: "Nicotine Patch",
     type: "Nicotine Replacement Therapy (NRT)",
+    tags: ["Nicotine Replacement"],
     description: "Provides steady nicotine through the skin all day.",
     cost: "$25–$80/month (OTC)",
     pros: ["Simple to use", "Provides steady nicotine delivery"],
@@ -42,6 +45,7 @@ export const methods = [
   {
     name: "Nicotine Gum",
     type: "Nicotine Replacement Therapy (NRT)",
+    tags: ["Nicotine Replacement"],
     description: "Chewable form that helps manage sudden cravings.",
     cost: "$20–$50/month (OTC)",
     pros: ["Helps manage cravings", "Flexible use"],
@@ -55,6 +59,7 @@ export const methods = [
   {
     name: "Nicotine Lozenge",
     type: "Nicotine Replacement Therapy (NRT)",
+    tags: ["Nicotine Replacement"],
     description: "Dissolves in the mouth to curb oral cravings.",
     cost: "$25–$60/month (OTC)",
     pros: ["Easy to use", "Good for oral cravings"],
@@ -68,6 +73,7 @@ export const methods = [
   {
     name: "Nicotine Nasal Spray",
     type: "Nicotine Replacement Therapy (Prescription)",
+    tags: ["Nicotine Replacement", "Prescription Medication"],
     description: "Rapid‑acting spray for intense cravings.",
     cost: "$50–$150/month",
     pros: ["Fast relief", "Helpful for strong cravings"],
@@ -81,6 +87,7 @@ export const methods = [
   {
     name: "Exercise",
     type: "Behavioral Strategy",
+    tags: ["Other"],
     description: "Physical activity to distract and improve mood.",
     cost: "Free",
     pros: ["Reduces cravings", "Boosts mood and energy"],
@@ -94,6 +101,7 @@ export const methods = [
   {
     name: "Deep Breathing",
     type: "Behavioral Strategy",
+    tags: ["Other"],
     description: "Simple relaxation technique to calm urges.",
     cost: "Free",
     pros: ["Calms nerves", "Accessible anytime"],
@@ -107,6 +115,7 @@ export const methods = [
   {
     name: "Listening to Music",
     type: "Behavioral Strategy",
+    tags: ["Other"],
     description: "Using favorite tunes as a positive distraction.",
     cost: "Free or subscription",
     pros: ["Distraction from cravings", "Mood booster"],
@@ -120,6 +129,7 @@ export const methods = [
   {
     name: "Chewing Raw Carrots or Sunflower Seeds",
     type: "Behavioral Strategy",
+    tags: ["Other"],
     description: "Keeps the mouth busy with a healthy alternative.",
     cost: "$1–$5/week",
     pros: ["Keeps hands and mouth busy", "Healthy alternative"],
@@ -134,6 +144,7 @@ export const methods = [
   {
     name: "Support Groups",
     type: "Behavioral Strategy",
+    tags: ["Other"],
     description: "Group meetings that offer peer encouragement.",
     cost: "Free or insurance covered",
     pros: ["Peer encouragement", "Structured support"],
