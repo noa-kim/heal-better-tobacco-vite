@@ -1,12 +1,20 @@
-.container {
-  padding: 1rem;
-  font-family: sans-serif;
+
+body {
+  background: #00b3bc;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.body {
-  background: #d9eef3;
-  color: #222;
+* {
+  box-sizing: border-box;
 }
+
+.container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 
 :root {
   --color-primary: #399396;
@@ -16,32 +24,35 @@
 }
 .welcome {
   margin-bottom: 1rem;
-  color: var(--color-primary);
+  color: #fff;
 }
 .controls {
   margin-bottom: 1rem;
-  color: var(--color-secondary);
+  color: #fff;
 }
 
 .title {
   text-align: center;
   margin-bottom: 1rem;
-  color: var(--color-primary);
+  color: #fff;
 }
 .grid {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  grid-template-columns: repeat(5, 1fr);
 }
 .card {
+  background: #fff;
+  color: #000;
   border: 1px solid var(--color-primary);
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 .card:hover {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
 }
 .card img {
   width: 100%;
@@ -51,12 +62,13 @@
 .card-content {
   padding: 0.5rem;
   text-align: center;
+  color: #000;
 }
 .card-details {
-  background: var(--color-highlight);
+  background: #CCF0F2;
   padding: 0.5rem;
   font-size: 0.9rem;
-  color: #fff;
+  color: #000;
 }
 .favorite {
   border-color: var(--color-accent);
@@ -75,5 +87,5 @@
   margin-top: 2rem;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--color-secondary);
+  color: #fff;
 }
