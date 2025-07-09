@@ -29,6 +29,19 @@ body {
 .controls {
   margin-bottom: 1rem;
   color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn.active {
+  background: var(--color-accent);
 }
 
 .title {
