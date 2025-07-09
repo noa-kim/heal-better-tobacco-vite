@@ -1,5 +1,6 @@
 import methods from "./methods"; // tobacco cessation methods are in methods.js
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getIframeHeight } from "./iframeHeight";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import "./App.css";
@@ -63,6 +64,17 @@ export default function HealBetterTobaccoCessationOptions() {
 
     doc.save("tobacco_cessation_favorites.pdf");
   };
+
+  useEffect(() => {
+    const sendHeight = () => {
+      const height = getIframeHeight();
+      window.parent.postMessage({ type: 'hb-height', height }, '*');
+    };
+
+    sendHeight();
+    window.addEventListener('resize', sendHeight);
+    return () => window.removeEventListener('resize', sendHeight);
+  }, []);
 
   return (
     <>
