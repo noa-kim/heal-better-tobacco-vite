@@ -2,7 +2,7 @@ import methods from "./methods"; // tobacco cessation methods are in methods.js
 import { useState, useEffect } from "react";
 import { getIframeHeight } from "./iframeHeight";
 import { jsPDF } from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 import "./App.css";
 
 const isValidUrl = (url) => {
@@ -52,7 +52,7 @@ export default function HealBetterTobaccoCessationOptions() {
       ];
     });
 
-    doc.autoTable({
+    autoTable(doc, {
       head: [["Name", "Type", "Cost", "Free Sample (Quitlink)", "GoodRx URL"]],
       body: tableData,
       startY: 30,
