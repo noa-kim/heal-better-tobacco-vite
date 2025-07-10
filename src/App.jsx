@@ -41,24 +41,23 @@ export default function HealBetterTobaccoCessationOptions() {
     doc.setFontSize(16);
     doc.text("Your Favorite Tobacco Cessation Methods", 14, 20);
 
-    const tableData = favorites.map(name => {
-      const method = methods.find(m => m.name === name);
-      return [
-        method?.name ?? "",
-        method?.type ?? "",
-        method?.cost ?? "",
-        method?.sample ?? "",
-        method?.goodrx ?? ""
-      ];
-    });
+      const tableData = favorites.map(name => {
+        const method = methods.find(m => m.name === name);
+        return [
+          method?.name ?? "",
+          method?.type ?? "",
+          method?.sample ?? "",
+          method?.goodrx ?? ""
+        ];
+      });
 
     autoTable(doc, {
-      head: [["Name", "Type", "Cost", "Free Sample (Quitlink)", "GoodRx URL"]],
+      head: [["Name", "Type", "Free Sample (Quitlink)", "GoodRx URL"]],
       body: tableData,
       startY: 30,
       styles: { fontSize: 10, cellWidth: 'wrap' },
       columnStyles: {
-        4: { cellWidth: 60 }
+        3: { cellWidth: 60 }
       }
     });
 
@@ -121,7 +120,6 @@ export default function HealBetterTobaccoCessationOptions() {
 
             {expanded === method.name && (
               <div className="card-details" onClick={(e) => e.stopPropagation()}>
-                <p><strong>Estimated Cost:</strong> {method.cost}</p>
                 <p><strong>Pros:</strong> {method.pros?.join(", ")}</p>
                 <p><strong>Cons:</strong> {method.cons?.join(", ")}</p>
                 <p><strong>How to Use:</strong> {method.usage}</p>
@@ -143,21 +141,17 @@ export default function HealBetterTobaccoCessationOptions() {
     </>
   )}
 </p>
-                {method.goodrx ? (
-                  isValidUrl(method.goodrx) ? (
-                    <p><strong>GoodRx Estimate:</strong>{" "}
-                      <a
-                        href={method.goodrx}
-                        className="text-blue-600 underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {method.cost} (View on GoodRx)
-                      </a>
-                    </p>
-                  ) : null
-                ) : (
-                  <p><strong>GoodRx Estimate:</strong> {method.cost}</p>
+                {method.goodrx && isValidUrl(method.goodrx) && (
+                  <p><strong>GoodRx Estimate:</strong>{" "}
+                    <a
+                      href={method.goodrx}
+                      className="text-blue-600 underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on GoodRx
+                    </a>
+                  </p>
                 )}
                 <button className="btn" onClick={(e) => { e.stopPropagation(); toggleFavorite(method.name); }}>
                   {favorites.includes(method.name) ? 'Remove from Favorites' : 'Add to Favorites'}
