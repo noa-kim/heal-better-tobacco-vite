@@ -37,9 +37,13 @@ export default function HealBetterTobaccoCessationOptions() {
   });
 
   const handleExportPDF = () => {
-    const doc = new jsPDF();
+    const doc = new jsPDF({
+      orientation: "landscape",
+      unit: "in",
+      format: [11, 8.5]
+    });
     doc.setFontSize(16);
-    doc.text("Your Favorite Tobacco Cessation Methods", 14, 20);
+    doc.text("Your Favorite Tobacco Cessation Methods", 0.5, 0.75);
 
     const tableData = favorites.map(name => {
       const method = methods.find(m => m.name === name);
@@ -55,11 +59,13 @@ export default function HealBetterTobaccoCessationOptions() {
     autoTable(doc, {
       head: [["Name", "Type", "Cost", "Free Sample (Quitlink)", "GoodRx URL"]],
       body: tableData,
-      startY: 30,
+      startY: 1,
+      margin: { left: 0.5, right: 0.5 },
       styles: { fontSize: 10, cellWidth: 'wrap' },
       columnStyles: {
-        4: { cellWidth: 60 }
-      }
+        4: { cellWidth: 2.5 }
+      },
+      tableWidth: doc.internal.pageSize.getWidth() - 1
     });
 
     doc.save("tobacco_cessation_favorites.pdf");
