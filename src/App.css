@@ -3,6 +3,7 @@ body {
   background: #fdfdfd;
   color: #333;
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
 }
 
 * {

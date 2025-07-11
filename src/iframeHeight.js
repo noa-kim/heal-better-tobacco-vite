@@ -1,3 +1,6 @@
 export const getIframeHeight = () => {
-  return document.documentElement.scrollHeight;
+  return Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight
+  );
 };
