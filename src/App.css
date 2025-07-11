@@ -35,6 +35,21 @@ body {
   gap: 0.5rem;
 }
 
+.top-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.filters {
+  flex: 1 1 300px;
+}
+
+.favorites {
+  flex: 1 1 300px;
+}
+
 .filter-heading {
   align-self: center;
   margin-right: 0.25rem;
