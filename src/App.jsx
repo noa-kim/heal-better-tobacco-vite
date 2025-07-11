@@ -17,7 +17,6 @@ const isValidUrl = (url) => {
 export default function HealBetterTobaccoCessationOptions() {
   const [favorites, setFavorites] = useState([]);
   const [expanded, setExpanded] = useState(null);
-  const [showFreeSamplesOnly, setShowFreeSamplesOnly] = useState(false);
   const [filter, setFilter] = useState("All");
 
   const toggleFavorite = (methodName) => {
@@ -29,10 +28,10 @@ export default function HealBetterTobaccoCessationOptions() {
   };
 
   const filteredMethods = methods.filter(m => {
-    if (showFreeSamplesOnly && m.sample?.toLowerCase() !== "yes") {
-      return false;
-    }
     if (filter === "All") return true;
+    if (filter === "Free Sample from the Quitlink") {
+      return m.sample?.toLowerCase() === "yes";
+    }
     return m.tags?.includes(filter);
   });
 
@@ -95,39 +94,35 @@ export default function HealBetterTobaccoCessationOptions() {
       <p className="welcome">
         Explore resources to help you quit! Click on any of the options to learn more about it. Save your favorites and print them as a reminder.
       </p>
-      <div className="col-span-full mt-8">
-        <h3 className="text-xl font-semibold mb-2">Your Favorites</h3>
-        {favorites.length === 0 ? (
-          <p className="text-sm text-gray-500">Click on a method to save it here.</p>
-        ) : (
-          <>
-            <ul className="list-disc pl-5">
-              {favorites.map((fav, i) => <li key={i}>{fav}</li>)}
-            </ul>
-            <button className="btn" onClick={handleExportPDF}>
-              Export as PDF
-            </button>
-          </>
-        )}
-      </div>
-      <div className="controls">
-        <button
-          className={`btn ${showFreeSamplesOnly ? 'active' : ''}`}
-          onClick={() => setShowFreeSamplesOnly(!showFreeSamplesOnly)}
-        >
-          Free Sample from the Quitlink
-        </button>
-        <h3 className="filter-heading">Filters:</h3>
-        <div className="filter-group">
-          {['All', 'Nicotine Replacement', 'Prescription Medication', 'Other'].map(cat => (
-            <button
-              key={cat}
-              className={`btn ${filter === cat ? 'active' : ''}`}
-              onClick={() => setFilter(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+      <div className="top-section">
+        <div className="filters controls">
+          <h3 className="filter-heading">Filters:</h3>
+          <div className="filter-group">
+            {['All', 'Free Sample from the Quitlink', 'Nicotine Replacement', 'Prescription Medication', 'Other'].map(cat => (
+              <button
+                key={cat}
+                className={`btn ${filter === cat ? 'active' : ''}`}
+                onClick={() => setFilter(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="favorites col-span-full mt-8">
+          <h3 className="text-xl font-semibold mb-2">Your Favorites</h3>
+          {favorites.length === 0 ? (
+            <p className="text-sm text-gray-500">Click on a method to save it here.</p>
+          ) : (
+            <>
+              <ul className="list-disc pl-5">
+                {favorites.map((fav, i) => <li key={i}>{fav}</li>)}
+              </ul>
+              <button className="btn" onClick={handleExportPDF}>
+                Export as PDF
+              </button>
+            </>
+          )}
         </div>
       </div>
 
