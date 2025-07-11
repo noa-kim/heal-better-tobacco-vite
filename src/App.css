@@ -35,6 +35,11 @@ body {
   gap: 0.5rem;
 }
 
+.filter-heading {
+  align-self: center;
+  margin-right: 0.25rem;
+}
+
 .filter-group {
   display: flex;
   flex-wrap: wrap;
