@@ -78,7 +78,14 @@ export default function HealBetterTobaccoCessationOptions() {
 
     sendHeight();
     window.addEventListener('resize', sendHeight);
-    return () => window.removeEventListener('resize', sendHeight);
+
+    const resizeObserver = new ResizeObserver(() => sendHeight());
+    resizeObserver.observe(document.body);
+
+    return () => {
+      window.removeEventListener('resize', sendHeight);
+      resizeObserver.disconnect();
+    };
   }, []);
 
   return (
